@@ -35,8 +35,8 @@
             "2c187fd153568753",
             "5dd59d010581f3c7"
         ],
-        "x": 14,
-        "y": 139,
+        "x": 154,
+        "y": 119,
         "w": 832,
         "h": 482
     },
@@ -54,8 +54,8 @@
         "allDevices": false,
         "allEvents": false,
         "allFormats": false,
-        "x": 90,
-        "y": 180,
+        "x": 230,
+        "y": 160,
         "wires": [
             [
                 "b1a3b5bb6c303968"
@@ -74,8 +74,8 @@
         "fmt": "json",
         "qos": "0",
         "retain": "false",
-        "x": 770,
-        "y": 180,
+        "x": 910,
+        "y": 160,
         "wires": []
     },
     {
@@ -90,8 +90,8 @@
         "fmt": "json",
         "qos": "0",
         "retain": "false",
-        "x": 750,
-        "y": 360,
+        "x": 890,
+        "y": 340,
         "wires": []
     },
     {
@@ -108,8 +108,8 @@
         "allDevices": false,
         "allEvents": false,
         "allFormats": false,
-        "x": 100,
-        "y": 360,
+        "x": 240,
+        "y": 340,
         "wires": [
             [
                 "1657909d21398a1f"
@@ -129,8 +129,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 260,
-        "y": 180,
+        "x": 400,
+        "y": 160,
         "wires": [
             [
                 "16cb1a5a0b88f3e6"
@@ -150,8 +150,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 180,
+        "x": 720,
+        "y": 160,
         "wires": [
             [
                 "cbb03235862b9fc3"
@@ -185,8 +185,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 430,
-        "y": 180,
+        "x": 570,
+        "y": 160,
         "wires": [
             [
                 "0a275bc1c36bf92c"
@@ -206,8 +206,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 280,
+        "x": 580,
+        "y": 260,
         "wires": [
             [
                 "5dd59d010581f3c7",
@@ -235,8 +235,8 @@
         "max": "60",
         "step": 1,
         "className": "",
-        "x": 440,
-        "y": 360,
+        "x": 580,
+        "y": 340,
         "wires": [
             [
                 "b9b1bde3d4193f4c"
@@ -256,8 +256,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
-        "y": 360,
+        "x": 410,
+        "y": 340,
         "wires": [
             [
                 "260c52d43538c340"
@@ -277,8 +277,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 360,
+        "x": 720,
+        "y": 340,
         "wires": [
             [
                 "5d87b8f48d2c9bb6"
@@ -310,8 +310,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 430,
-        "y": 500,
+        "x": 570,
+        "y": 480,
         "wires": []
     },
     {
@@ -328,8 +328,8 @@
         "allDevices": false,
         "allEvents": false,
         "allFormats": false,
-        "x": 90,
-        "y": 500,
+        "x": 230,
+        "y": 480,
         "wires": [
             [
                 "d3f24a700172c85c",
@@ -351,8 +351,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 260,
-        "y": 500,
+        "x": 400,
+        "y": 480,
         "wires": [
             [
                 "c6f168079cff8ddf"
@@ -372,8 +372,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 240,
-        "y": 580,
+        "x": 380,
+        "y": 560,
         "wires": []
     },
     {
@@ -389,8 +389,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 620,
-        "y": 280,
+        "x": 760,
+        "y": 260,
         "wires": []
     }
 ]
