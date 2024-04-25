@@ -1,1 +1,396 @@
-[]
+[
+    {
+        "id": "d3ae330de4a8d565",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "49d58d8da3e329d4",
+        "type": "group",
+        "z": "d3ae330de4a8d565",
+        "name": "Thermostat and Valve",
+        "style": {
+            "label": true,
+            "color": "#001f60",
+            "stroke": "#ffcf3f"
+        },
+        "nodes": [
+            "e800b9672696c6a6",
+            "cbb03235862b9fc3",
+            "5d87b8f48d2c9bb6",
+            "e25cf7e7835d0733",
+            "b1a3b5bb6c303968",
+            "0a275bc1c36bf92c",
+            "16cb1a5a0b88f3e6",
+            "b7a52d435e613b57",
+            "260c52d43538c340",
+            "1657909d21398a1f",
+            "b9b1bde3d4193f4c",
+            "c6f168079cff8ddf",
+            "939e40a5d958dd71",
+            "d3f24a700172c85c",
+            "2c187fd153568753",
+            "5dd59d010581f3c7"
+        ],
+        "x": 14,
+        "y": 139,
+        "w": 832,
+        "h": 482
+    },
+    {
+        "id": "e800b9672696c6a6",
+        "type": "io7 in",
+        "z": "d3ae330de4a8d565",
+        "g": "49d58d8da3e329d4",
+        "name": "valve",
+        "deviceId": "valve",
+        "authentication": "",
+        "evt": "status",
+        "fmt": "json",
+        "qos": "0",
+        "allDevices": false,
+        "allEvents": false,
+        "allFormats": false,
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "b1a3b5bb6c303968"
+            ]
+        ]
+    },
+    {
+        "id": "cbb03235862b9fc3",
+        "type": "io7 out",
+        "z": "d3ae330de4a8d565",
+        "g": "49d58d8da3e329d4",
+        "authentication": "",
+        "name": "valve",
+        "deviceId": "valve",
+        "cmd": "power",
+        "fmt": "json",
+        "qos": "0",
+        "retain": "false",
+        "x": 770,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "5d87b8f48d2c9bb6",
+        "type": "io7 out",
+        "z": "d3ae330de4a8d565",
+        "g": "49d58d8da3e329d4",
+        "authentication": "",
+        "name": "thermostat",
+        "deviceId": "thermostat",
+        "cmd": "set",
+        "fmt": "json",
+        "qos": "0",
+        "retain": "false",
+        "x": 750,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "e25cf7e7835d0733",
+        "type": "io7 in",
+        "z": "d3ae330de4a8d565",
+        "g": "49d58d8da3e329d4",
+        "name": "thermostat",
+        "deviceId": "thermostat",
+        "authentication": "20d6f8fafb221f12",
+        "evt": "status",
+        "fmt": "json",
+        "qos": "0",
+        "allDevices": false,
+        "allEvents": false,
+        "allFormats": false,
+        "x": 100,
+        "y": 360,
+        "wires": [
+            [
+                "1657909d21398a1f"
+            ]
+        ]
+    },
+    {
+        "id": "b1a3b5bb6c303968",
+        "type": "function",
+        "z": "d3ae330de4a8d565",
+        "g": "49d58d8da3e329d4",
+        "name": "update ui",
+        "func": "msg.payload = msg.payload.d.valve;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 180,
+        "wires": [
+            [
+                "16cb1a5a0b88f3e6"
+            ]
+        ]
+    },
+    {
+        "id": "0a275bc1c36bf92c",
+        "type": "function",
+        "z": "d3ae330de4a8d565",
+        "g": "49d58d8da3e329d4",
+        "name": "command",
+        "func": "msg.payload = {\n    \"d\" : {\n        \"valve\" : msg.payload\n    }\n}\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 180,
+        "wires": [
+            [
+                "cbb03235862b9fc3"
+            ]
+        ]
+    },
+    {
+        "id": "16cb1a5a0b88f3e6",
+        "type": "ui_switch",
+        "z": "d3ae330de4a8d565",
+        "g": "49d58d8da3e329d4",
+        "name": "",
+        "label": "valve",
+        "tooltip": "",
+        "group": "d9dfadce294166db",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 430,
+        "y": 180,
+        "wires": [
+            [
+                "0a275bc1c36bf92c"
+            ]
+        ]
+    },
+    {
+        "id": "b7a52d435e613b57",
+        "type": "function",
+        "z": "d3ae330de4a8d565",
+        "g": "49d58d8da3e329d4",
+        "name": "automate",
+        "func": "let evt1 = { d: {} };\nvar target = global.get(\"target\");\nif (target !== undefined) {\n    var targetValue = parseInt(target);\n}\n\nif (msg.payload.d.temperature < targetValue) {\n    evt1.d.valve = 'on';\n} else {\n    evt1.d.valve = 'off';\n}\n\nreturn { payload: evt1 };",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 280,
+        "wires": [
+            [
+                "5dd59d010581f3c7",
+                "cbb03235862b9fc3"
+            ]
+        ]
+    },
+    {
+        "id": "260c52d43538c340",
+        "type": "ui_slider",
+        "z": "d3ae330de4a8d565",
+        "g": "49d58d8da3e329d4",
+        "name": "",
+        "label": "Target ℃",
+        "tooltip": "",
+        "group": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "10",
+        "max": "60",
+        "step": 1,
+        "className": "",
+        "x": 440,
+        "y": 360,
+        "wires": [
+            [
+                "b9b1bde3d4193f4c"
+            ]
+        ]
+    },
+    {
+        "id": "1657909d21398a1f",
+        "type": "function",
+        "z": "d3ae330de4a8d565",
+        "g": "49d58d8da3e329d4",
+        "name": "update ui 2",
+        "func": "let target1 = {\n    payload : msg.payload.d.target\n}\nglobal.set(\"target\", msg.payload.d.target)\nreturn target1;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 360,
+        "wires": [
+            [
+                "260c52d43538c340"
+            ]
+        ]
+    },
+    {
+        "id": "b9b1bde3d4193f4c",
+        "type": "function",
+        "z": "d3ae330de4a8d565",
+        "g": "49d58d8da3e329d4",
+        "name": "command",
+        "func": "msg.payload = {\n    \"d\" : {\n        \"target\" : msg.payload\n    }\n}\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 360,
+        "wires": [
+            [
+                "5d87b8f48d2c9bb6"
+            ]
+        ]
+    },
+    {
+        "id": "c6f168079cff8ddf",
+        "type": "ui_gauge",
+        "z": "d3ae330de4a8d565",
+        "g": "49d58d8da3e329d4",
+        "name": "",
+        "group": "d9dfadce294166db",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}℃",
+        "min": 0,
+        "max": "60",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 430,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "939e40a5d958dd71",
+        "type": "io7 in",
+        "z": "d3ae330de4a8d565",
+        "g": "49d58d8da3e329d4",
+        "name": "dht22",
+        "deviceId": "dht",
+        "authentication": "20d6f8fafb221f12",
+        "evt": "status",
+        "fmt": "json",
+        "qos": "0",
+        "allDevices": false,
+        "allEvents": false,
+        "allFormats": false,
+        "x": 90,
+        "y": 500,
+        "wires": [
+            [
+                "d3f24a700172c85c",
+                "2c187fd153568753",
+                "b7a52d435e613b57"
+            ]
+        ]
+    },
+    {
+        "id": "d3f24a700172c85c",
+        "type": "function",
+        "z": "d3ae330de4a8d565",
+        "g": "49d58d8da3e329d4",
+        "name": "function 1",
+        "func": "let temperature1= {\n    payload: msg.payload.d.temperature\n}\n\nglobal.set(\"temperature\",temperature1)\nreturn temperature1;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 500,
+        "wires": [
+            [
+                "c6f168079cff8ddf"
+            ]
+        ]
+    },
+    {
+        "id": "2c187fd153568753",
+        "type": "debug",
+        "z": "d3ae330de4a8d565",
+        "g": "49d58d8da3e329d4",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 240,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "5dd59d010581f3c7",
+        "type": "debug",
+        "z": "d3ae330de4a8d565",
+        "g": "49d58d8da3e329d4",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 280,
+        "wires": []
+    }
+]
